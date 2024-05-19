@@ -1,0 +1,8 @@
+//software encoding
+ffmpeg -i input -c:v libx265 -x265-params lossless=1 output.mp4
+//hardware enconding (nvenc)
+ffmpeg -i input -c:v hevc_nvenc -rc vbr_hq -cq 18 -b:v 0k -2pass 0 output.mp4
+
+
+the best so far 
+ffmpeg -i input.avi -c:v hevc_nvenc -cq 18 -tune:v lossless -2pass 0 output.mkv
